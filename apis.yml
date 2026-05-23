@@ -1,0 +1,171 @@
+aid: scroll-zkevm
+url: https://raw.githubusercontent.com/api-evangelist/scroll-zkevm/refs/heads/main/apis.yml
+name: Scroll
+kind: company
+description: >-
+  Scroll is a native zkEVM Layer 2 for Ethereum, built by Scroll Foundation,
+  that uses zero-knowledge proofs to scale Ethereum while preserving bytecode
+  equivalence with the EVM. Developer surface is dominated by standard
+  Ethereum JSON-RPC endpoints on mainnet and Sepolia testnet, the Scrollscan
+  block explorer (with an Etherscan-compatible REST API), a canonical L1<>L2
+  bridge with messenger contracts, and a rollup explorer that surfaces batch
+  and proof status. dApp builders use Scroll as a drop-in EVM target with
+  Hardhat, Foundry, viem, ethers, and other standard EVM tooling.
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - zkEVM
+  - Layer 2
+  - Ethereum
+  - Rollup
+  - Zero Knowledge
+  - JSON-RPC
+  - Crypto
+  - Web3
+created: '2026-05-23'
+modified: '2026-05-23'
+specificationVersion: '0.19'
+apis:
+  - aid: scroll-zkevm:json-rpc-mainnet
+    name: Scroll JSON-RPC (Mainnet)
+    description: >-
+      Standard Ethereum JSON-RPC interface for Scroll mainnet (chain ID 534352).
+      Used by wallets, dApps, indexers, and tools to read chain state and submit
+      transactions. Compatible with eth_*, net_*, web3_*, and debug methods
+      consistent with the Scroll zkEVM client.
+    humanURL: https://docs.scroll.io/
+    baseURL: https://rpc.scroll.io
+    tags:
+      - JSON-RPC
+      - Mainnet
+      - EVM
+    properties:
+      - type: Documentation
+        url: https://docs.scroll.io/
+  - aid: scroll-zkevm:json-rpc-sepolia
+    name: Scroll JSON-RPC (Sepolia Testnet)
+    description: >-
+      Standard Ethereum JSON-RPC endpoint for Scroll Sepolia testnet
+      (chain ID 534351), used for development, integration testing, and
+      contract deployment dry runs before mainnet.
+    humanURL: https://docs.scroll.io/
+    baseURL: https://sepolia-rpc.scroll.io
+    tags:
+      - JSON-RPC
+      - Testnet
+      - Sepolia
+    properties:
+      - type: Documentation
+        url: https://docs.scroll.io/
+  - aid: scroll-zkevm:scrollscan-api
+    name: Scrollscan API
+    description: >-
+      Etherscan-compatible REST API for Scroll mainnet served by Scrollscan -
+      block, transaction, account, token, contract verification, gas, and
+      event log endpoints. Used by analytics dashboards, portfolio trackers,
+      and tax tools.
+    humanURL: https://docs.scrollscan.com/
+    baseURL: https://api.scrollscan.com
+    tags:
+      - Explorer
+      - REST
+      - Etherscan-Compatible
+    properties:
+      - type: Documentation
+        url: https://docs.scrollscan.com/
+  - aid: scroll-zkevm:scrollscan-sepolia-api
+    name: Scrollscan API (Sepolia)
+    description: >-
+      Etherscan-compatible REST API for the Scroll Sepolia testnet explorer,
+      mirroring the mainnet Scrollscan API surface for development use.
+    humanURL: https://docs.scrollscan.com/
+    baseURL: https://api-sepolia.scrollscan.com
+    tags:
+      - Explorer
+      - REST
+      - Testnet
+    properties:
+      - type: Documentation
+        url: https://docs.scrollscan.com/
+  - aid: scroll-zkevm:rollup-explorer
+    name: Scroll Rollup Scanner
+    description: >-
+      Web explorer for Scroll rollup batches and proof status - shows L1 batch
+      commit, finalization, and proof submission for each L2 batch. Useful for
+      bridge operators and users tracking L2 to L1 message finalization.
+    humanURL: https://scroll.io/rollupscan
+    baseURL: https://scroll.io/rollupscan
+    tags:
+      - Explorer
+      - Rollup
+      - Batches
+    properties:
+      - type: Website
+        url: https://scroll.io/rollupscan
+  - aid: scroll-zkevm:bridge
+    name: Scroll Native Bridge
+    description: >-
+      Canonical L1 <-> L2 bridge for ETH, ERC-20, and arbitrary messages
+      between Ethereum mainnet and Scroll. Backed by the L1 and L2 Scroll
+      Messenger and Gateway contracts; dApps integrate via the published
+      contract ABIs.
+    humanURL: https://docs.scroll.io/en/developers/l1-and-l2-bridging/
+    baseURL: https://scroll.io/bridge
+    tags:
+      - Bridge
+      - Messaging
+      - L1
+      - L2
+    properties:
+      - type: Documentation
+        url: https://docs.scroll.io/en/developers/l1-and-l2-bridging/
+      - type: Website
+        url: https://scroll.io/bridge
+  - aid: scroll-zkevm:contracts
+    name: Scroll Contracts
+    description: >-
+      Solidity contracts that implement the Scroll rollup - L1 / L2 messengers,
+      gateways, ScrollChain commit/finalize logic, and the proving system
+      verifiers. Reference implementation used to integrate with the bridge
+      and verify proof state.
+    humanURL: https://github.com/scroll-tech/scroll-contracts
+    baseURL: https://github.com/scroll-tech/scroll-contracts
+    tags:
+      - Smart Contracts
+      - Solidity
+      - Rollup
+    properties:
+      - type: Repository
+        url: https://github.com/scroll-tech/scroll-contracts
+  - aid: scroll-zkevm:go-ethereum
+    name: Scroll go-ethereum (l2geth)
+    description: >-
+      Scroll's fork of go-ethereum that runs the Scroll zkEVM execution layer
+      and serves the JSON-RPC API. Used by node operators and infrastructure
+      providers running Scroll nodes.
+    humanURL: https://github.com/scroll-tech/go-ethereum
+    baseURL: https://github.com/scroll-tech/go-ethereum
+    tags:
+      - Node
+      - Go
+      - Execution Client
+    properties:
+      - type: Repository
+        url: https://github.com/scroll-tech/go-ethereum
+common:
+  - type: Website
+    url: https://scroll.io/
+  - type: Documentation
+    url: https://docs.scroll.io/
+  - type: GitHub
+    url: https://github.com/scroll-tech
+  - type: Explorer
+    url: https://scrollscan.com/
+  - type: Blog
+    url: https://scroll.io/blog
+  - type: X
+    url: https://x.com/Scroll_ZKP
+  - type: Discord
+    url: https://discord.gg/scroll
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
