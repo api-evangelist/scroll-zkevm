@@ -1,0 +1,141 @@
+openapi: 3.1.0
+info:
+  title: Scroll JSON-RPC
+  description: >-
+    Standard Ethereum JSON-RPC interface for the Scroll zkEVM Layer 2.
+    Available on mainnet (chain ID 534352) and Sepolia testnet
+    (chain ID 534351). All methods are exposed as POST requests with a
+    JSON-RPC 2.0 envelope. Scroll is EVM-equivalent; standard eth_*,
+    net_*, web3_* methods work, with rollup-specific opcode notes at
+    rollup.codes/scroll.
+  version: "2.0"
+  contact:
+    name: Scroll Foundation
+    url: https://docs.scroll.io/
+servers:
+  - url: https://rpc.scroll.io
+    description: Scroll mainnet (chain ID 534352)
+  - url: https://sepolia-rpc.scroll.io
+    description: Scroll Sepolia testnet (chain ID 534351)
+tags:
+  - name: JSON-RPC
+    description: Ethereum JSON-RPC over HTTP POST
+paths:
+  /:
+    post:
+      tags: [JSON-RPC]
+      summary: Submit a JSON-RPC request
+      description: >-
+        Submit any standard Ethereum JSON-RPC 2.0 request. The `method`
+        field selects the operation. Common methods include
+        `eth_chainId`, `eth_blockNumber`, `eth_getBalance`,
+        `eth_getTransactionByHash`, `eth_getTransactionReceipt`,
+        `eth_call`, `eth_sendRawTransaction`, `eth_estimateGas`,
+        `eth_getBlockByNumber`, `eth_getLogs`, `net_version`,
+        `web3_clientVersion`.
+      operationId: jsonRpc
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JsonRpcRequest'
+            examples:
+              eth_chainId:
+                summary: Get chain ID
+                value:
+                  jsonrpc: "2.0"
+                  id: 1
+                  method: eth_chainId
+                  params: []
+              eth_blockNumber:
+                summary: Latest block number
+                value:
+                  jsonrpc: "2.0"
+                  id: 1
+                  method: eth_blockNumber
+                  params: []
+              eth_getBalance:
+                summary: Get ETH balance at latest block
+                value:
+                  jsonrpc: "2.0"
+                  id: 1
+                  method: eth_getBalance
+                  params:
+                    - "0x0000000000000000000000000000000000000000"
+                    - "latest"
+              eth_call:
+                summary: Read-only contract call
+                value:
+                  jsonrpc: "2.0"
+                  id: 1
+                  method: eth_call
+                  params:
+                    - to: "0x0000000000000000000000000000000000000000"
+                      data: "0x"
+                    - "latest"
+              eth_sendRawTransaction:
+                summary: Submit a signed transaction
+                value:
+                  jsonrpc: "2.0"
+                  id: 1
+                  method: eth_sendRawTransaction
+                  params:
+                    - "0xf8..."
+              eth_getLogs:
+                summary: Query event logs
+                value:
+                  jsonrpc: "2.0"
+                  id: 1
+                  method: eth_getLogs
+                  params:
+                    - fromBlock: "0x0"
+                      toBlock: "latest"
+                      address: "0x0000000000000000000000000000000000000000"
+      responses:
+        '200':
+          description: JSON-RPC response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JsonRpcResponse'
+components:
+  schemas:
+    JsonRpcRequest:
+      type: object
+      required: [jsonrpc, method, id]
+      properties:
+        jsonrpc:
+          type: string
+          const: "2.0"
+        id:
+          oneOf:
+            - { type: integer }
+            - { type: string }
+        method:
+          type: string
+          description: JSON-RPC method name (e.g. eth_chainId, eth_blockNumber, eth_call)
+        params:
+          type: array
+          items: {}
+          description: Positional parameters for the JSON-RPC method
+    JsonRpcResponse:
+      type: object
+      required: [jsonrpc, id]
+      properties:
+        jsonrpc:
+          type: string
+          const: "2.0"
+        id:
+          oneOf:
+            - { type: integer }
+            - { type: string }
+        result:
+          description: Method-specific result (present on success)
+        error:
+          type: object
+          description: Present on failure
+          properties:
+            code: { type: integer }
+            message: { type: string }
+            data: {}
