@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Scroll JSON-RPC",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "JSON-RPC",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Submit a JSON-RPC request",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://rpc.scroll.io/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submit any standard Ethereum JSON-RPC 2.0 request. The `method` field selects the operation. Common methods include `eth_chainId`, `eth_blockNumber`, `eth_getBalance`, `eth_getTransactionByHash`, `eth_getTransactionReceipt`, `eth_call`, `eth_sendRawTransaction`, `eth_estimateGas`, `eth_getBlockByNumber`, `eth_getLogs`, `net_version`, `web3_clientVersion`."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

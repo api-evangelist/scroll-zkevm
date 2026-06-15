@@ -1,0 +1,123 @@
+{
+  "item": [
+    {
+      "id": "49e4e819-1736-4337-8f70-439845886772",
+      "name": "JSON-RPC",
+      "description": {
+        "content": "Ethereum JSON-RPC over HTTP POST",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "df91612b-bdac-4878-bfb8-864408b16a12",
+          "name": "Submit a JSON-RPC request",
+          "request": {
+            "name": "Submit a JSON-RPC request",
+            "description": {
+              "content": "Submit any standard Ethereum JSON-RPC 2.0 request. The `method` field selects the operation. Common methods include `eth_chainId`, `eth_blockNumber`, `eth_getBalance`, `eth_getTransactionByHash`, `eth_getTransactionReceipt`, `eth_call`, `eth_sendRawTransaction`, `eth_estimateGas`, `eth_getBlockByNumber`, `eth_getLogs`, `net_version`, `web3_clientVersion`.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"jsonrpc\": \"<string>\",\n  \"method\": \"<string>\",\n  \"id\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d3d8bfef-71b5-401f-b5fa-6adfdef2dbd5",
+              "name": "JSON-RPC response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"jsonrpc\": \"2.0\",\n  \"id\": 1,\n  \"method\": \"eth_chainId\",\n  \"params\": []\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"jsonrpc\": \"string\",\n  \"id\": 4027,\n  \"result\": {},\n  \"error\": {\n    \"code\": 3763,\n    \"message\": \"string\",\n    \"data\": \"\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://rpc.scroll.io",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "b0c38b04-a410-411b-b85d-6c3b79d36a12",
+    "name": "Scroll JSON-RPC",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Standard Ethereum JSON-RPC interface for the Scroll zkEVM Layer 2. Available on mainnet (chain ID 534352) and Sepolia testnet (chain ID 534351). All methods are exposed as POST requests with a JSON-RPC 2.0 envelope. Scroll is EVM-equivalent; standard eth_*, net_*, web3_* methods work, with rollup-specific opcode notes at rollup.codes/scroll.\n\nContact Support:\n Name: Scroll Foundation",
+      "type": "text/plain"
+    }
+  }
+}
