@@ -11,7 +11,7 @@ description: >-
   bridge with messenger contracts, and a rollup explorer that surfaces batch
   and proof status. dApp builders use Scroll as a drop-in EVM target with
   Hardhat, Foundry, viem, ethers, and other standard EVM tooling.
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - zkEVM
   - Layer 2
