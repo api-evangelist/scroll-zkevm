@@ -152,6 +152,8 @@ apis:
       - type: Repository
         url: https://github.com/scroll-tech/go-ethereum
 common:
+  - type: DomainSecurity
+    url: security/scroll-zkevm-domain-security.yml
   - type: Website
     url: https://scroll.io/
   - type: Documentation
