@@ -1,0 +1,14 @@
+{
+  "provider": "scroll-zkevm",
+  "sources": [
+    "scroll-zkevm-json-rpc-api-openapi.yml"
+  ],
+  "outputs": [
+    "scroll-zkevm-json-rpc-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
