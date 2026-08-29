@@ -11,6 +11,18 @@ description: >-
   bridge with messenger contracts, and a rollup explorer that surfaces batch
   and proof status. dApp builders use Scroll as a drop-in EVM target with
   Hardhat, Foundry, viem, ethers, and other standard EVM tooling.
+deliveryModel:
+  model: unknown
+  open_source: unknown
+  commercial: false
+  callable_host: true
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - openapi
+  - repository-unlicensed
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: free
   onboarding: unknown
@@ -168,6 +180,10 @@ apis:
   - type: OpenAPI
     url: openapi/scroll-zkevm-json-rpc-api-openapi.yml
 common:
+  - type: IssueTracker
+    url: https://github.com/scroll-tech/scroll-contracts/issues
+  - type: Releases
+    url: https://github.com/scroll-tech/scroll-contracts/releases
   - type: AgenticAccess
     url: agentic-access/scroll-zkevm-agentic-access.yml
   - type: DomainSecurity
