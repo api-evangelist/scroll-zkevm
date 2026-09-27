@@ -13,6 +13,10 @@ description: >-
   Hardhat, Foundry, viem, ethers, and other standard EVM tooling.
 deliveryModel:
   model: unknown
+  license_evidence:
+    not_product:
+    - scroll-tech/go-ethereum
+    - scroll-tech/scroll-contracts
   open_source: unknown
   commercial: false
   callable_host: true
@@ -20,8 +24,8 @@ deliveryModel:
   confidence: low
   source:
   - openapi
-  - repository-unlicensed
-  generated: '2026-08-28'
+  - repository-not-product
+  generated: '2026-09-25'
   method: derived
 accessModel:
   pricing: free
