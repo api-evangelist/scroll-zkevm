@@ -89,27 +89,6 @@ paths:
                 $ref: '#/components/schemas/JsonRpcResponse'
 components:
   schemas:
-    JsonRpcRequest:
-      type: object
-      required:
-      - jsonrpc
-      - method
-      - id
-      properties:
-        jsonrpc:
-          type: string
-          const: '2.0'
-        id:
-          oneOf:
-          - type: integer
-          - type: string
-        method:
-          type: string
-          description: JSON-RPC method name (e.g. eth_chainId, eth_blockNumber, eth_call)
-        params:
-          type: array
-          items: {}
-          description: Positional parameters for the JSON-RPC method
     JsonRpcResponse:
       type: object
       required:
@@ -134,3 +113,24 @@ components:
             message:
               type: string
             data: {}
+    JsonRpcRequest:
+      type: object
+      required:
+      - jsonrpc
+      - method
+      - id
+      properties:
+        jsonrpc:
+          type: string
+          const: '2.0'
+        id:
+          oneOf:
+          - type: integer
+          - type: string
+        method:
+          type: string
+          description: JSON-RPC method name (e.g. eth_chainId, eth_blockNumber, eth_call)
+        params:
+          type: array
+          items: {}
+          description: Positional parameters for the JSON-RPC method
