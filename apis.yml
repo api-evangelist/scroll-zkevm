@@ -47,6 +47,15 @@ tags:
   - Rollup
   - Zero Knowledge
   - JSON-RPC
+  - Cryptocurrency
+  - Web3
+tags_raw:
+  - zkEVM
+  - Layer 2
+  - Ethereum
+  - Rollup
+  - Zero Knowledge
+  - JSON-RPC
   - Crypto
   - Web3
 created: '2026-05-23'
@@ -135,6 +144,11 @@ apis:
   humanURL: https://docs.scroll.io/en/developers/l1-and-l2-bridging/
   baseURL: https://scroll.io/bridge
   tags:
+  - Bridge
+  - Messaging
+  - L1
+  - Layer 2
+  tags_raw:
   - Bridge
   - Messaging
   - L1
